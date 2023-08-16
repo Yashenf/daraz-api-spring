@@ -1,27 +1,26 @@
 package com.daraz.pos.entity;
 
+import com.daraz.pos.entity.sheard.FileResource;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import java.util.Date;
+import javax.persistence.ManyToOne;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Entity
-public class Payment {
+public class ProductImage {
     @Id
     private String propertyId;
-    private Date date;
-    private double amount;
-    private String bank;
-    @OneToOne
-    @JoinColumn(unique = true)// for one to one
-    private Orders orderPropertyId;
+    @Embedded
+    private FileResource file;
+    @ManyToOne
+    private Product product;
 }
