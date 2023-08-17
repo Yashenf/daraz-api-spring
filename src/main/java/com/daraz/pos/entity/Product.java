@@ -27,8 +27,10 @@ public class Product {
     private double sellingPrice;
     private int qtyOnHand;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private Set<ProductImage> images;
+    private List<ProductImage> images;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<Orders> orderList;
+    @OneToMany(mappedBy = "product")
+    private List<Favorite> favorites;
 
 }

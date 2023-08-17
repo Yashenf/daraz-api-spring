@@ -32,4 +32,6 @@ public class User {
     private FileResource avatar;
     @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL)
     private List<Orders> ordersList;
+    @OneToMany(mappedBy = "user")
+    private List<Favorite> favorites;
 }
